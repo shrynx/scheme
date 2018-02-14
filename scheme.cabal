@@ -1,0 +1,68 @@
+name:                scheme
+version:             0.1.0.0
+synopsis:            Scheme in haskell
+homepage:            https://github.com/shrynx/scheme#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Shriyans
+maintainer:          shriyansbhatnagr@gmail.com
+copyright:           (c) 2018 Shriyans
+build-type:          Simple
+cabal-version:       >=1.10
+extra-source-files:  README.md
+
+library
+  exposed-modules:     
+    Repl
+    Parser
+    LispVal
+    Eval
+    Cli
+    Prim
+
+  default-extensions:
+    OverloadedStrings
+
+  build-depends:       
+      base                 >= 4.8 && <5.0
+    , containers           
+    , directory           
+    , haskeline           
+    , mtl                 
+    , optparse-applicative
+    , parsec              
+    , text                 
+    , transformers        
+    , HTTP
+
+  ghc-options:
+    -Werror
+    -fno-warn-unused-do-bind
+    -fno-warn-unused-binds
+    -fno-warn-type-defaults
+    -fno-warn-type-defaults
+    -fno-warn-name-shadowing
+
+    -fwarn-duplicate-exports
+    -fwarn-dodgy-exports
+    -fwarn-dodgy-imports
+    -fwarn-incomplete-patterns
+    -fwarn-incomplete-record-updates
+    -fwarn-missing-fields
+    -fwarn-missing-methods
+    -fwarn-orphans
+    -fwarn-overlapping-patterns
+    -fwarn-unused-imports
+    -fwarn-tabs
+    -fwarn-unrecognised-pragmas
+
+  hs-source-dirs: src
+  default-language: Haskell2010
+
+executable scheme
+  hs-source-dirs: exec
+  main-is: Main.hs
+  build-depends: 
+      base >= 4.8 && < 5
+    , scheme == 0.1.0.0
+  default-language: Haskell2010
